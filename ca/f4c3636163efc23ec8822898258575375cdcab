@@ -1,0 +1,56 @@
+src/glean_folder_ingest/cli.py
+  s_159eca8569d1d0::t_c4d4a1a6a1caad 1-60
+src/glean_folder_ingest/documents.py
+  s_159eca8569d1d0::t_846dd881825251 130-135,137-146
+  s_159eca8569d1d0::t_e0a00aca0958a6 136
+  s_159eca8569d1d0::t_c4d4a1a6a1caad 1-129,147-223
+src/glean_folder_ingest/glean_client.py
+  s_159eca8569d1d0::t_c4d4a1a6a1caad 1-33,50-55,62-133
+  s_159eca8569d1d0::t_846dd881825251 56-61
+  s_159eca8569d1d0::t_fae4b8b81a9561 34-49
+src/glean_folder_ingest/streamlit_app.py
+  s_159eca8569d1d0::t_e0a00aca0958a6 10-13
+  s_159eca8569d1d0::t_846dd881825251 1-9,14-221
+README.md
+  s_159eca8569d1d0::t_c4d4a1a6a1caad 1-27,34-47,49-96,103,112-126
+  s_159eca8569d1d0::t_846dd881825251 28-33,48,97-102,104-111
+.gitignore
+  s_159eca8569d1d0::t_ca9608fdb243c8 1-8
+pyproject.toml
+  s_159eca8569d1d0::t_064cf849a1823a 15
+  s_159eca8569d1d0::t_c4d4a1a6a1caad 1-14,16-26
+tests/test_config.py
+  s_159eca8569d1d0::t_c4d4a1a6a1caad 1-19
+src/glean_folder_ingest/ingest.py
+  s_159eca8569d1d0::t_c4d4a1a6a1caad 1-27,69-86,94-101
+  s_159eca8569d1d0::t_846dd881825251 28-68,87-93
+.env.example
+  s_159eca8569d1d0::t_c4d4a1a6a1caad 1-10,12-27
+  s_159eca8569d1d0::t_846dd881825251 11
+tests/test_glean_client.py
+  s_159eca8569d1d0::t_e0a00aca0958a6 38-67
+  s_159eca8569d1d0::t_27981f756d0ce6 1-37
+src/glean_folder_ingest/config.py
+  s_159eca8569d1d0::t_c4d4a1a6a1caad 1-149
+src/glean_folder_ingest/__init__.py
+  s_159eca8569d1d0::t_c4d4a1a6a1caad 1-5
+tests/test_documents.py
+  s_159eca8569d1d0::t_c4d4a1a6a1caad 1-3,11-52
+  s_159eca8569d1d0::t_e0a00aca0958a6 4-10,53-59
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.8",
+  "base_commit_sha": "caf4c3636163efc23ec8822898258575375cdcab",
+  "prompts": {},
+  "sessions": {
+    "s_159eca8569d1d0": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019eda52-eadb-7dc2-802b-b13d04eb859f",
+        "model": "gpt-5.5"
+      },
+      "human_author": "gautam143751 <gautamcs.be@gmail.com>"
+    }
+  }
+}
