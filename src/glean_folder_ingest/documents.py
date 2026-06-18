@@ -56,7 +56,7 @@ class SourceDocument:
     mime_type: str
     content: bytes
     size: int
-    updated_at: str | None = None
+    updated_at: int | None = None
 
 
 class SourceReader(Protocol):
@@ -105,7 +105,7 @@ def to_glean_document(source_doc: SourceDocument, glean: GleanConfig) -> dict:
     if glean.allow_anonymous_access:
         permissions = {"allowAnonymousAccess": True}
     elif glean.default_allowed_users:
-        permissions = {"allowedUsers": glean.default_allowed_users}
+        permissions = {"allowedUsers": [{"email": email} for email in glean.default_allowed_users]}
     else:
         permissions = {"allowAnonymousAccess": False}
 
@@ -118,8 +118,8 @@ def to_glean_document(source_doc: SourceDocument, glean: GleanConfig) -> dict:
         "permissions": permissions,
         "viewURL": build_view_url(glean.view_url_base, document_id),
         "customProperties": [
-            {"name": "source_uri", "value": source_doc.uri},
-            {"name": "source_size_bytes", "value": str(source_doc.size)},
+            {"name": "sourceuri", "value": source_doc.uri},
+            {"name": "sourcesizebytes", "value": str(source_doc.size)},
         ],
     }
     if source_doc.updated_at:
@@ -209,7 +209,7 @@ class S3Reader:
                         mime_type=mime_type,
                         content=content,
                         size=len(content),
-                        updated_at=item.get("LastModified").isoformat() if item.get("LastModified") else None,
+                        updated_at=int(item["LastModified"].timestamp()) if item.get("LastModified") else None,
                     )
                 )
         return documents

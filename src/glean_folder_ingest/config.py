@@ -3,6 +3,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 import os
 from pathlib import Path
+import re
 
 
 class ConfigError(ValueError):
@@ -109,6 +110,8 @@ def load_config() -> AppConfig:
     datasource = os.getenv("GLEAN_DATASOURCE")
     if not datasource:
         raise ConfigError("GLEAN_DATASOURCE is required")
+    if not re.fullmatch(r"[A-Za-z0-9]+", datasource):
+        raise ConfigError("GLEAN_DATASOURCE must contain alphanumeric characters only")
 
     view_url_base = os.getenv("GLEAN_VIEW_URL_BASE", "").rstrip("/")
     if not view_url_base.startswith("http://") and not view_url_base.startswith("https://"):

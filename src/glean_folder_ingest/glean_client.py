@@ -33,14 +33,14 @@ class GleanClient:
                     "docCategory": self.config.datasource_category,
                     "propertyDefinitions": [
                         {
-                            "name": "source_uri",
+                            "name": "sourceuri",
                             "displayLabel": "Source URI",
                             "displayLabelPlural": "Source URIs",
                             "propertyType": "TEXT",
                             "hideUiFacet": True,
                         },
                         {
-                            "name": "source_size_bytes",
+                            "name": "sourcesizebytes",
                             "displayLabel": "Source Size Bytes",
                             "displayLabelPlural": "Source Size Bytes",
                             "propertyType": "TEXT",
@@ -65,6 +65,20 @@ class GleanClient:
             {
                 "datasource": self.config.datasource,
                 "documents": documents,
+            },
+        )
+
+    def index_user(self, email: str, name: str | None = None) -> dict[str, Any]:
+        display_name = name or email.split("@", 1)[0] or email
+        return self._post(
+            "/api/index/v1/indexuser",
+            {
+                "datasource": self.config.datasource,
+                "user": {
+                    "email": email,
+                    "name": display_name,
+                    "isActive": True,
+                },
             },
         )
 

@@ -48,7 +48,7 @@ def test_to_glean_document_uses_allowed_users() -> None:
 
     assert document["datasource"] == "local-folder-docs"
     assert document["objectType"] == "LocalFile"
-    assert document["permissions"] == {"allowedUsers": ["user@example.com"]}
+    assert document["permissions"] == {"allowedUsers": [{"email": "user@example.com"}]}
     assert document["body"] == {"mimeType": "text/markdown", "textContent": "# Hello"}
 
 

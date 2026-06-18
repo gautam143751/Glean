@@ -66,6 +66,12 @@ def upload_glean_documents(
     return uploaded
 
 
+def ensure_allowed_users(client: GleanClient, allowed_users: list[str], progress: Progress = print) -> None:
+    for email in allowed_users:
+        progress(f"Indexing datasource user {email}")
+        client.index_user(email)
+
+
 def run_ingest(config: AppConfig, dry_run: bool = False, mode: str | None = None, progress: Progress = print) -> IngestResult:
     upload_mode = mode or config.upload_mode
     if upload_mode not in {"incremental", "bulk"}:
@@ -84,6 +90,9 @@ def run_ingest(config: AppConfig, dry_run: bool = False, mode: str | None = None
         return IngestResult(discovered=len(source_documents), uploaded=0, skipped=0, mode=upload_mode)
 
     client = GleanClient(config.glean, config.http_timeout_seconds, config.max_retries)
+    if config.glean.default_allowed_users and not config.glean.allow_anonymous_access:
+        ensure_allowed_users(client, config.glean.default_allowed_users, progress)
+
     uploaded = upload_glean_documents(
         client=client,
         documents=glean_documents,

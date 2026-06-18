@@ -40,12 +40,12 @@ Required Glean settings:
 ```bash
 GLEAN_API_TOKEN=...
 GLEAN_SERVER_URL=https://customer-be.glean.com
-GLEAN_DATASOURCE=local-folder-docs
+GLEAN_DATASOURCE=localfolderdocs
 GLEAN_DATASOURCE_DISPLAY_NAME="Local Folder Docs"
 GLEAN_OBJECT_TYPE=LocalFile
 GLEAN_VIEW_URL_BASE=https://your-viewer.example.com/docs
 GLEAN_DEFAULT_ALLOWED_USERS=user@company.com
-GLEAN_KNOWN_DATASOURCES=local-folder-docs,another-custom-datasource
+GLEAN_KNOWN_DATASOURCES=localfolderdocs,anothercustomdatasource
 ```
 
 Local source:
@@ -117,6 +117,7 @@ The UI supports:
 - Document IDs are stable alphanumeric SHA-256-derived IDs based on source URI.
 - JSON, XML, video, image, audio, zip, and rar files are skipped by default because Glean lists those MIME families as unsupported for indexing.
 - The Glean token should not be placed in browser-side code. Run this as a CLI, daemon, or backend-side job.
+- Glean datasource names must be alphanumeric. Use `GLEAN_DATASOURCE=localfolderdocs`, not `local-folder-docs`.
 
 ## Useful Commands
 
