@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "glean-folder-ingest"
+version = "0.1.0"
+description = "Env-configured local folder or S3 bucket ingestion into a custom Glean datasource."
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = []
+
+[project.optional-dependencies]
+s3 = ["boto3>=1.34"]
+ui = ["streamlit>=1.54,<1.58"]
+dev = ["pytest>=8"]
+
+[project.scripts]
+glean-ingest = "glean_folder_ingest.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
