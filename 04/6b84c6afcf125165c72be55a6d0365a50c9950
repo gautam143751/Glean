@@ -1,0 +1,41 @@
+.gitignore
+  s_159eca8569d1d0::t_58f75c0dcdbf63 3
+README.md
+  s_159eca8569d1d0::t_c7966453d5a8cd 43,48,120
+tests/test_glean_client.py
+  s_159eca8569d1d0::t_06349941987865 111-147
+  s_159eca8569d1d0::t_4a6a9932fd048f 35-36
+  s_159eca8569d1d0::t_c1ca448819f44e 68-110
+.env.example
+  s_159eca8569d1d0::t_c7966453d5a8cd 4,11
+src/glean_folder_ingest/glean_client.py
+  s_159eca8569d1d0::t_4a6a9932fd048f 36,43
+  s_159eca8569d1d0::t_06349941987865 71-84
+src/glean_folder_ingest/ingest.py
+  s_159eca8569d1d0::t_06349941987865 69-74,93-95
+tests/test_config.py
+  s_159eca8569d1d0::t_c7966453d5a8cd 3-5,13,22-33
+src/glean_folder_ingest/documents.py
+  s_159eca8569d1d0::t_4a6a9932fd048f 121-122
+  s_159eca8569d1d0::t_c1ca448819f44e 59,108,212
+tests/test_documents.py
+  s_159eca8569d1d0::t_c1ca448819f44e 51
+src/glean_folder_ingest/config.py
+  s_159eca8569d1d0::t_c7966453d5a8cd 6,113-114
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.8",
+  "base_commit_sha": "046b84c6afcf125165c72be55a6d0365a50c9950",
+  "prompts": {},
+  "sessions": {
+    "s_159eca8569d1d0": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019eda52-eadb-7dc2-802b-b13d04eb859f",
+        "model": "gpt-5.5"
+      },
+      "human_author": "gautam143751 <gautamcs.be@gmail.com>"
+    }
+  }
+}
