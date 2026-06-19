@@ -1,0 +1,28 @@
+src/glean_folder_ingest/documents.py
+  s_159eca8569d1d0::t_a753aa8850eae9 161-162
+src/glean_folder_ingest/config.py
+  s_159eca8569d1d0::t_a753aa8850eae9 119-120
+src/glean_folder_ingest/cli.py
+  s_159eca8569d1d0::t_9876bb083e5a76 8,23,46-67
+tests/test_config.py
+  s_159eca8569d1d0::t_a753aa8850eae9 34-45
+README.md
+  s_159eca8569d1d0::t_9876bb083e5a76 87-92,127
+  s_159eca8569d1d0::t_d170512a3a4989 128
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.8",
+  "base_commit_sha": "89edb2931bdf39543ba1c611732bd0c73a89a365",
+  "prompts": {},
+  "sessions": {
+    "s_159eca8569d1d0": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019eda52-eadb-7dc2-802b-b13d04eb859f",
+        "model": "gpt-5.5"
+      },
+      "human_author": "gautam143751 <gautamcs.be@gmail.com>"
+    }
+  }
+}
