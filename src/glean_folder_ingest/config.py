@@ -116,6 +116,8 @@ def load_config() -> AppConfig:
     view_url_base = os.getenv("GLEAN_VIEW_URL_BASE", "").rstrip("/")
     if not view_url_base.startswith("http://") and not view_url_base.startswith("https://"):
         raise ConfigError("GLEAN_VIEW_URL_BASE must be an http:// or https:// URL")
+    if "*" in view_url_base:
+        raise ConfigError("GLEAN_VIEW_URL_BASE must be a concrete URL base, not a regex")
 
     upload_mode = os.getenv("UPLOAD_MODE", "incremental").strip().lower()
     if upload_mode not in {"incremental", "bulk"}:

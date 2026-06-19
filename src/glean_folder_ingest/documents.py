@@ -158,6 +158,8 @@ class LocalFolderReader:
         for path in sorted(self.folder.rglob("*")):
             if not path.is_file():
                 continue
+            if any(part.startswith(".") for part in path.relative_to(self.folder).parts):
+                continue
             mime_type = infer_mime_type(path.name)
             if not is_supported_mime_type(mime_type):
                 continue

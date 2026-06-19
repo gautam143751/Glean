@@ -84,6 +84,12 @@ Dry run without calling Glean:
 glean-ingest ingest --dry-run
 ```
 
+Show effective datasource and permission mode without calling Glean:
+
+```bash
+glean-ingest doctor
+```
+
 Full replacement upload using `bulkindexdocuments`:
 
 ```bash
@@ -118,6 +124,8 @@ The UI supports:
 - JSON, XML, video, image, audio, zip, and rar files are skipped by default because Glean lists those MIME families as unsupported for indexing.
 - The Glean token should not be placed in browser-side code. Run this as a CLI, daemon, or backend-side job.
 - Glean datasource names must be alphanumeric. Use `GLEAN_DATASOURCE=localfolderdocs`, not `local-folder-docs`.
+- To make documents visible to all users in the tenant, set `GLEAN_ALLOW_ANONYMOUS_ACCESS=true`. In that mode, `GLEAN_DEFAULT_ALLOWED_USERS` is ignored by uploads.
+- If Glean returns `Config is not registered for datasource custom_<name>`, run `glean-ingest setup-datasource` with the same `GLEAN_DATASOURCE=<name>` used for ingestion, or change ingestion to use the datasource you already created.
 
 ## Useful Commands
 
